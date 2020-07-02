@@ -68,6 +68,8 @@ class SugarFeed extends Basic
 
     public function __construct()
     {
+        global $disable_date_format;
+        $disable_date_format = true;
         parent::__construct();
     }
 
@@ -275,7 +277,7 @@ class SugarFeed extends Basic
         $record_assigned_user_id=false,
         $link_type=false,
         $link_url=false
-        ) {
+    ) {
         $feed = BeanFactory::newBean('SugarFeed');
         if ((empty($text) && empty($link_url)) || !$feed->ACLAccess('save', true)) {
             $GLOBALS['log']->error('Unable to save SugarFeed record (missing data or no ACL access)');
@@ -487,7 +489,7 @@ class SugarFeed extends Basic
         global $timedate;
 
         $timedate->getInstance()->userTimezone();
-        $currentTime = $timedate->now();
+        $currentTime = $timedate->nowDb();
 
         $first = strtotime($currentTime);
         $second = strtotime($startDate);
