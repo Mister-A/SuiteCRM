@@ -1,4 +1,5 @@
 <?php
+
 /**
  *
  * SugarCRM Community Edition is a customer relationship management program developed by
@@ -83,7 +84,8 @@ $object_arr['Contacts'] = $bean->billing_contact_id;
 $object_arr['Users'] = $bean->assigned_user_id;
 $object_arr['Currencies'] = $bean->currency_id;
 
-$search = array('/<script[^>]*?>.*?<\/script>/si',      // Strip out javascript
+$search = array(
+    '/<script[^>]*?>.*?<\/script>/si',      // Strip out javascript
     '/<[\/\!]*?[^<>]*?>/si',        // Strip out HTML tags
     '/([\r\n])[\s]+/',          // Strip out white space
     '/&(quot|#34);/i',          // Replace HTML entities
@@ -97,7 +99,8 @@ $search = array('/<script[^>]*?>.*?<\/script>/si',      // Strip out javascript
     '/&#(\d+);/'
 );
 
-$replace = array('',
+$replace = array(
+    '',
     '',
     '\1',
     '"',
