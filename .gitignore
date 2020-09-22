@@ -124,3 +124,7 @@ codeception.yml
 .env
 .env.test
 .env.dev
+
+# Ignore folder
+.ignore/
+
