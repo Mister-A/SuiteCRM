@@ -1,4 +1,5 @@
 <?php
+
 /**
  *
  * SugarCRM Community Edition is a customer relationship management program developed by
@@ -69,7 +70,7 @@ class SugarChartFactory
             $chartEngine = $sugar_config['chartEngine'];
         }
 
-        $file = "include/SugarCharts/".$chartEngine."/".$chartEngine.$module.".php";
+        $file = "include/SugarCharts/" . $chartEngine . "/" . $chartEngine . $module . ".php";
         $customFile = 'custom/' . $file;
 
         if (file_exists($customFile)) {
@@ -80,17 +81,17 @@ class SugarChartFactory
 
             LoggerManager::getLogger()->debug(
                 "Using default engine include/SugarCharts/" .
-                $defaultEngine . "/" .
-                $defaultEngine.$module.".php"
+                    $defaultEngine . "/" .
+                    $defaultEngine . $module . ".php"
             );
 
-            $defaultFile = "include/SugarCharts/".$defaultEngine."/".$defaultEngine.$module.".php";
+            $defaultFile = "include/SugarCharts/" . $defaultEngine . "/" . $defaultEngine . $module . ".php";
             require_once($defaultFile);
 
             $chartEngine = $defaultEngine;
         }
 
-        $className = $chartEngine.$module;
+        $className = $chartEngine . $module;
         return new $className();
     }
 }
