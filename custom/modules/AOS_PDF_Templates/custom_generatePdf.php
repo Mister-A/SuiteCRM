@@ -143,7 +143,12 @@ $footer = templateParser::parse_template($footer, $object_arr);
 $printable = str_replace("\n", "<br />", $converted);
 
 if ($task == 'pdf' || $task == 'emailpdf') {
-    $file_name = $mod_strings['LBL_PDF_NAME'] . "_" . str_replace(" ", "_", $bean->name) . ".pdf";
+    if ($bean->module_dir == "AOS_Invoices") {
+        // custom naming scheme for Invoices module
+        $file_name = $bean->number . "_" . $bean->billing_account . ".pdf";
+    } else {
+        $file_name = $mod_strings['LBL_PDF_NAME'] . "_" . str_replace(" ", "_", $bean->name) . ".pdf";  // original naming scheme
+    }
 
     ob_clean();
     try {

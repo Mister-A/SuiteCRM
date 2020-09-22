@@ -6,7 +6,8 @@ cache/*
 upload/*
 !upload/index.html
 # Ignore some files and directories from the custom directory.
-custom/
+#custom/ <-- this prevents anything in custom including sub dirs being tracked - I believe this is not the intended behaviour
+custom/**/logichooks.ext.php
 custom/history/*
 custom/blowfish/*
 custom/modulebuilder/*
@@ -102,7 +103,7 @@ tests/_output/*
 BrowserStackLocal
 browserstack.err
 cache/
-custom/**/
+#custom/**/  <-- this prevents anything in custom including sub dirs being tracked - I believe this is not the intended behaviour
 .sass-cache/
 
 # Ignore testing environment
